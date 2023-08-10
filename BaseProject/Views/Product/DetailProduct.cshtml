@@ -1,0 +1,62 @@
+﻿<!--start content-->
+<main class="page-content">
+    <form asp-controller="Product" asp-action="Update" method="post">
+        <div class="card-body">
+            <div class="product-grid">
+                <div class="row row-cols-1 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-3">
+                    <div class="col">
+                        <div class="card border shadow-none mb-0">
+                            <div class="card-body text-center">
+                                <img src="/images/products/01.png" class="img-fluid mb-3" alt="" />
+                                <h6 class="product-title">Men White Polo T-shirt</h6>
+                                <p class="product-price fs-5 mb-1"><span>$250.99</span></p>
+                                <div class="rating mb-0">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </div>
+                                <small>74 Reviews</small>
+                                <div class="actions d-flex align-items-center justify-content-center gap-2 mt-3">
+                                    <a href="javascript:;" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-fill"></i> Edit</a>
+                                    <a href="javascript:;" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash-fill"></i> Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end row-->
+
+            </div>
+            <nav class="float-end mt-4" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+    </form>
+</main>
+<!--end page main-->
+
+<form asp-controller="Product" asp-action="Update" method="post">
+    <div>상품명 : <input type="text" name="Name"  value="@Model.Name" /></div>
+    <div>가격 : <input type="text" name="Price"  value="@Model.Price" /></div>
+    <p></p>
+    <div> 사용되는 자재 목록 </div>
+    @foreach(Product_Use_Metrail_Model Metrail in Model.ProductUseMetrailModels)
+    {
+        <div>
+        자재이름 :<input type="text" name="Name" value="@Metrail.Metrail.Name" />
+        </div>
+        <div>
+        가격 :<input type="text" name="Count" value="@Metrail.Quantity" />
+        </div>        
+    }
+    <input type="submit" value="전송" />
+    <input type="file" name="ImgFile" />
+    <div>파일 수정 :<img src="@Model.ImgUrl"/></div>
+</form> 
