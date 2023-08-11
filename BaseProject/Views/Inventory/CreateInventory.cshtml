@@ -3,10 +3,55 @@
 *@
 @{
 }
+
 <script>
   document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
 </script>
-<form asp-controller="Inventory" asp-action="create" method="post">
+
+<!--start content-->
+<main class="page-content">
+
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header py-3 bg-transparent">
+                    <h5 class="mb-0">재고 등록</h5>
+                </div>
+                <div class="card-body">
+                    <div class="border p-3 rounded">
+                        <form asp-controller="Inventory" asp-action="create" enctype="multipart/form-data" method="post" class="row g-3">
+                             @foreach(Product_Model product in Model)
+                            {
+                                <div class="col-12">
+                                    <label class="form-label">상품 이름</label>
+                                <div class="form-control">@product.Name</div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">생산 수량</label>
+                                    <input type="text" class="form-control" name="Count" value="0">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">생산 일자</label>
+                                    <input type="date" class="form-control" id="currentDate" name="CreateTime">
+                                </div>
+                                <p></p>
+                                }
+                        </form>
+                        <p></p>
+                        <div class="col-12">
+                            <button class="btn btn-primary px-4">재고 등록</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--end row-->
+
+</main>
+<!--end page main-->
+
+
+@*<form asp-controller="Inventory" asp-action="create" method="post">
     @foreach(Product_Model product in Model)
     {
         <input type="hidden" name="ProductId"  value="@product.Id" />
@@ -17,5 +62,5 @@
     }
     <p></p>
     <button>상품등록</button>
-</form>
+</form>*@
 

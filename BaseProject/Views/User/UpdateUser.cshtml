@@ -1,5 +1,42 @@
-﻿
-   <form asp-controller="User" asp-action="UpdateUser" method="post" enctype="multipart/form-data">
+﻿<!--start content-->
+<main class="page-content">
+
+    <div class="row">
+        <div class="col-12 col-lg-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="mb-0">내 정보 수정</h5>
+                    <hr>
+                    <div class="card shadow-none border">
+                        <div class="card-body">
+                            <form asp-controller="User" asp-action="UpdateUser" method="post" enctype="multipart/form-data" class="row g-3">
+                                <div class="col-12">
+                                    <div>My Image<img src="@Model.ImgUrl" style="width:150px; height:150px" /> </div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Name</label>
+                                    <div type="text" class="form-control">@Model.UserName</div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Password</label>
+                                    <input type="text" class="form-control" placeholder="Password"></input>
+                                </div>
+                                <div class="text-center align-self-md-center">
+                                    <button type="submit" class="btn btn-primary px-4">수정</button>
+                                    <button type="submit" class="btn btn-primary px-4">삭제</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--end row-->
+
+</main>
+<!--end page main-->
+
+<form asp-controller="User" asp-action="UpdateUser" method="post" enctype="multipart/form-data">
         <div >Name<input type="text" value="@Model.UserName" /></div>
         <div >PassWord<input type="text" placeholder="Password" /></div>
         <input type="file" name="file" />      

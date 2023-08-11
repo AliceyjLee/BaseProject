@@ -4,7 +4,65 @@
 @{
 }
 
-@foreach(Inventory_Model inventory in Model)
+<form asp-controller="materal" asp-action="UpdateMateral" method="post">
+    <!--start content-->
+    <main class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">재고 목록</div>
+        </div>
+        <!--end breadcrumb-->
+
+        <div class="card" style="padding-bottom: 10px;">
+            @foreach (Inventory_Model inventory in Model)
+            {
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                    </td>
+                                    <td class="productlist">
+                                        <div class="product-box">
+                                            <img src=@inventory.Product.ImgUrl style="width:100px; height:100px">
+                                        </div>
+                                    </td>
+                                    <td><span>@inventory.Product.Name</span></td>
+                                    <td><span>@inventory.Count</span></td>
+                                    <td><span>@inventory.CreateTime</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-start">
+                        <a class="btn" href="/Inventory/detail?id=@inventory.Id">@inventory.Product.Name 수정</a>
+                    </div>
+                </div>
+            }
+            <div class="text-start align-self-md-center">
+                <a class="btn btn-primary px-4" href="/Inventory/create">재고 등록</a>
+            </div>
+            @*<nav class="float-end" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>*@
+        </div>
+    </main>
+    <!--end page main-->
+</form>
+
+
+
+@*@foreach(Inventory_Model inventory in Model)
 {    
     <div>재고 이름 : @inventory.Product.Name</div>
     <div>생산 갯수 : @inventory.Count</div>
@@ -15,4 +73,4 @@
     
     <p></p>
 }
-<a href="/Inventory/create">재고등록</a>
+<a href="/Inventory/create">재고등록</a>*@

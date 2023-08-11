@@ -70,8 +70,8 @@ app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
-//AppDbInitializer.Seed(app);
-//AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+AppDbInitializer.Seed(app);
+AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
 app.MapControllerRoute(
     name: "default",

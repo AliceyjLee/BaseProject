@@ -44,11 +44,13 @@
                                 <label class="form-label">가격</label>
                                 <input type="text" class="form-control" name="Price" placeholder="Price" value="10000">
                             </div>
-                            <div class="col-12">
+@*                            <div class="col-12">
                                 <label class="form-label">상태</label>
-                                <input type="text" class="form-control" placeholder="Enter tags">
-                            </div>
-                               <div>사용되는 자재</div>
+                                <input type="hidden" class="form-control" placeholder="Enter tags">
+                            </div>*@
+                            <p></p>
+                               <div>사용되는 자재 목록</div>
+                            <p></p>
                             @foreach (var Material in Model)
                             {
                                 <input type="hidden" name="MetrailId" value="@Material.Id" />
@@ -73,7 +75,7 @@
                                 <label class="form-label">고무 소모양</label>
                                 <input type="text" class="form-control" name="count" placeholder="count" value="0">
                             </div>*@
-                            <div class="col-12">
+                            <div class="text-start">
                                 <button class="btn btn-primary px-4">상품 등록</button>
                             </div>
                         </form>

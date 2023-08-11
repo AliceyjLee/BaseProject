@@ -3,6 +3,79 @@
 *@
 @{
 }
+
+<form asp-controller="materal" asp-action="UpdateMateral" method="post">
+<!--start content-->
+<main class="page-content">
+    <!--breadcrumb-->
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="breadcrumb-title pe-3">자재 목록</div>
+    </div>
+    <!--end breadcrumb-->
+
+        <div class="card" style="padding-bottom: 10px;">
+            @foreach (Material_Model material_Model in Model)
+        {
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-middle table-striped">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox">
+                                    </div>
+                                </td>
+                                <td class="productlist">
+                                    <div class="product-box">
+                                        <img src=@material_Model.ImgUrl style="width:100px; height:100px">
+                                    </div>
+                                </td>
+                                <td><span>@material_Model.Name</span></td>
+                                <td><span class="badge rounded-pill bg-success">@material_Model.Status</span></td>
+                                <td><span>@material_Model.Quantity</span></td>
+                                <td><span>@material_Model.Price</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                    @if (material_Model.Status == BaseProject.Data.Enums.StatusCategory.Activation)
+                {
+                    <div class="text-start">
+                            <a class="btn" href="/materal/delete?id=@material_Model.Id">상품비활성화</a>
+                    </div>
+                }
+                    else if (material_Model.Status == BaseProject.Data.Enums.StatusCategory.Deactivation)
+                {
+                    <div class="text-start">
+                            <a class="btn" href="/materal/delete?id=@material_Model.Id">상품비활성화</a>
+                    </div>
+                }
+                <div class="text-start">
+                        <a class="btn" href="/materal/detail?id=@material_Model.Id">@material_Model.Name 수정</a>
+                </div>
+            </div>
+        }
+            <div class=" text-start align-self-md-center">
+                <a class="btn btn-primary px-4" href="/materal/create">자재 등록</a>
+            </div>
+        @*<nav class="float-end mt-4" aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>*@
+    </div>
+</main>
+<!--end page main-->
+</form>
+
+
+
+
 <form asp-controller="materal" asp-action="UpdateMateral" method="post">
 @foreach(Material_Model material_Model in Model)
 {
