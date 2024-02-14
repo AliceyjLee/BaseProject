@@ -30,10 +30,22 @@ Link : https://docs.google.com/presentation/d/1c4VlBMuJwt-LBNzFQJxtp0L7MLi4CeOp1
 ## 🎥 시연영상
 
 ### 실시간 카메라 현황 
-
-### 제품 분류 컨베이어
-
-
+<img width="50%" src="Ai.gif"/>
 <br/>
 
+### 제품 분류 컨베이어
+<img width="50%" src="IoTvideo.gif"/>
+<br/>
+
+### 회원가입 및 로그인
+<img width="50%" src="[SHANA]로그인.gif"/>
+<br/>
+
+### 제품관리
+<img width="50%" src="[SHANA]상품등록.gif"/>
+<br/>
+
+### 재고관리
+<img width="50%" src="[SHANA]자재등록.gif"/>
+<br/>
 
